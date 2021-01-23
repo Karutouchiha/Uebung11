@@ -26,25 +26,45 @@ public class Model{
         else if (cc == ColorCode.GREEN){
             int greend=value-getGreen();
             if (greend<0)
-                red.dec(greend);
+                green.dec(greend);
             else {
-                red.inc(greend);
+                green.inc(greend);
             }
         }
         else{
             int blued=value-getBlue();
             if (blued<0)
-                red.dec(blued);
+                blue.dec(blued);
             else {
-                red.inc(blued);
+                blue.inc(blued);
             }
         }
     }
     public void changeColorViaRelativeValue(ColorCode cc, String value){
-
+        changeColorViaAbsoluteValue(cc,Integer.parseInt(value));
     }
     public void changeColorViaRelativeValue(ColorCode cc, int value){
-
+        if (cc == ColorCode.RED){
+            if (value<0)
+                red.dec(value);
+            else {
+                red.inc(value);
+            }
+        }
+        else if (cc == ColorCode.GREEN){
+            if (value<0)
+                green.dec(value);
+            else {
+                green.inc(value);
+            }
+        }
+        else{
+            if (value<0)
+                blue.dec(value);
+            else {
+                blue.inc(value);
+            }
+        }
     }
 
     public int getRed() {
