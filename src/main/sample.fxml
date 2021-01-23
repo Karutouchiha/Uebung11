@@ -32,7 +32,7 @@
                         <Font size="45.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="88.0" text="+10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#gethex" prefHeight="60.0" prefWidth="88.0" text="+10" />
                   <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="84.0" text="-10" />
                </children>
             </HBox>

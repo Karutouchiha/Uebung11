@@ -1,19 +1,44 @@
 package models;
 
-public class Model {
+import javafx.scene.paint.Color;
+
+public class Model{
     ModularCounter red;
     ModularCounter green;
     ModularCounter blue;
     public Model(){
-        ModularCounter red = new ModularCounter(255, 256);
-        ModularCounter green = new ModularCounter(255, 256);
-        ModularCounter blue = new ModularCounter(255, 256);
+        this.red = new ModularCounter(255, 256);
+        this.green = new ModularCounter(255, 256);
+        this.blue = new ModularCounter(255, 256);
     }
     public void changeColorViaAbsoluteValue(ColorCode cc, String value){
-
+        changeColorViaAbsoluteValue(cc,Integer.parseInt(value));
     }
     public void changeColorViaAbsoluteValue(ColorCode cc, int value){
-
+        if (cc == ColorCode.RED){
+            int redd=value - getRed();
+            if (redd<0)
+            red.dec(redd);
+            else {
+                red.inc(redd);
+            }
+        }
+        else if (cc == ColorCode.GREEN){
+            int greend=value-getGreen();
+            if (greend<0)
+                red.dec(greend);
+            else {
+                red.inc(greend);
+            }
+        }
+        else{
+            int blued=value-getBlue();
+            if (blued<0)
+                red.dec(blued);
+            else {
+                red.inc(blued);
+            }
+        }
     }
     public void changeColorViaRelativeValue(ColorCode cc, String value){
 
@@ -32,8 +57,8 @@ public class Model {
     public int getBlue() {
         return blue.getValue();
     }
+
     public String getHex(){
-        System.out.print(red.toString());
         return "hex";
     }
 
