@@ -19,10 +19,6 @@ public class Controller implements Initializable {
     @FXML private Text txt_hex;
     @FXML private Text txt_col;
     Model mod = new Model();
-
-    public void gethex(){
-        mod.getHex();
-    }
     public void changecolor(){
         mod.changeColorViaAbsoluteValue(ColorCode.RED, txt_red.getText());
     }

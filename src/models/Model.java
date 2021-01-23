@@ -79,7 +79,7 @@ public class Model{
     }
 
     public String getHex(){
-        return "hex";
+        return  String.format("#%02x%02x%02x", getRed(), getGreen(), getBlue());
     }
 
     @Override
