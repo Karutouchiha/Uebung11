@@ -20,7 +20,7 @@ public class Controller implements Initializable {
     @FXML private Text txt_col;
     Model mod = new Model();
     public void changecolor(){
-        mod.changeColorViaAbsoluteValue(ColorCode.RED, txt_red.getText());
+
     }
 
     @Override
