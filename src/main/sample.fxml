@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -32,11 +31,11 @@
                         <Font size="45.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" onMouseClicked="#gethex" prefHeight="60.0" prefWidth="88.0" text="+10" />
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="84.0" text="-10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="88.0" text="+10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="84.0" text="-10" />
                </children>
             </HBox>
-            <TextArea fx:id="txt_red" prefHeight="102.0" prefWidth="300.0" />
+            <TextField fx:id="txt_red" onAction="#changecolorText" onZoomFinished="#changecolorText" prefHeight="104.0" prefWidth="300.0" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -48,11 +47,11 @@
                         <Font size="45.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="88.0" text="+10" />
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="84.0" text="-10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="88.0" text="+10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="84.0" text="-10" />
                </children>
             </HBox>
-            <TextArea fx:id="txt_green" prefHeight="102.0" prefWidth="300.0" />
+            <TextField fx:id="txt_green" onAction="#changecolorText" onZoomFinished="#changecolorText" prefHeight="104.0" prefWidth="300.0" />
          </children>
       </VBox>
       <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
@@ -64,15 +63,15 @@
                         <Font size="45.0" />
                      </font>
                   </Text>
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="88.0" text="+10" />
-                  <Button mnemonicParsing="false" prefHeight="60.0" prefWidth="84.0" text="-10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="88.0" text="+10" />
+                  <Button mnemonicParsing="false" onMouseClicked="#changecolorButton" prefHeight="60.0" prefWidth="84.0" text="-10" />
                </children>
             </HBox>
-            <TextArea fx:id="txt_blue" prefHeight="104.0" prefWidth="300.0" />
+            <TextField fx:id="txt_blue" onAction="#changecolorText" onZoomFinished="#changecolorText" prefHeight="104.0" prefWidth="300.0" />
          </children>
       </VBox>
       <TextField fx:id="field_color" prefHeight="170.0" prefWidth="270.0" GridPane.columnIndex="2" />
-      <Text fx:id="txt_hex" strokeType="OUTSIDE" strokeWidth="0.0" text="Hex: " wrappingWidth="117.33673095703125" GridPane.columnIndex="2" GridPane.rowIndex="1">
+      <Text fx:id="txt_hex" strokeType="OUTSIDE" strokeWidth="0.0" text="Hex: " wrappingWidth="296.33673095703125" GridPane.columnIndex="2" GridPane.rowIndex="1">
          <font>
             <Font size="36.0" />
          </font>
