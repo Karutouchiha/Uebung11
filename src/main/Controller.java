@@ -2,7 +2,9 @@ package main;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.text.Text;
 import models.ColorCode;
 import models.Model;
@@ -29,8 +31,34 @@ public class Controller implements Initializable {
         }
         updateColor();
     }
-    public void changecolorButton(){
-        System.out.print("Hello");
+    public void changecolorButton(MouseEvent event){
+        Object node = event.getSource();
+        Button btn = (Button)node;
+        String s = btn.getText();
+        String color = btn.getId();
+        if (s.equals("+10"))
+        {
+           if (color.equals("red")){
+               mod.changeColorViaRelativeValue(ColorCode.RED,10);
+           }
+           else if (color.equals("green")){
+               mod.changeColorViaRelativeValue(ColorCode.GREEN,10);
+           }
+           else {
+               mod.changeColorViaRelativeValue(ColorCode.BLUE,10);
+           }
+        }
+        else {
+            if (color.equals("red")){
+                mod.changeColorViaRelativeValue(ColorCode.RED,-10);
+            }
+            else if (color.equals("green")){
+                mod.changeColorViaRelativeValue(ColorCode.GREEN,-10);
+            }
+            else {
+                mod.changeColorViaRelativeValue(ColorCode.BLUE,-10);
+            }
+        }
         updateColor();
     }
     private void updateColor(){
