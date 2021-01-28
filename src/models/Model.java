@@ -146,6 +146,8 @@ public class Model{
             System.out.print("Commands:\n" +
                     "a - setAbsoluteValue\n" +
                     "r - setRelativeValue\n" +
+                    "s - saveColor\n" +
+                    "l - loadColor\n" +
                     "? - view current Settings\n" +
                     "q - quit Program\n");
             s = scanner.next();
@@ -183,7 +185,14 @@ public class Model{
                 }
             } else if (s.equals("?")) {
                 System.out.print(m.toString());
-            } else if (!s.equals("q")){
+            }
+            else if (s.equals("s")){
+                m.saveToFile();
+            }
+            else if (s.equals("l")){
+                m.loadFormFile();
+            }
+            else if (!s.equals("q")){
                 System.out.print("Command not found\n");
             }
         }while (!s.equals("q"));
