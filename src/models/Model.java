@@ -1,6 +1,7 @@
 package models;
 
 
+import java.io.*;
 import java.util.Scanner;
 
 public class Model{
@@ -43,6 +44,31 @@ public class Model{
     }
     public void changeColorViaRelativeValue(ColorCode cc, String value){
         changeColorViaAbsoluteValue(cc,Integer.parseInt(value));
+    }
+    public void saveToFile(){
+        try(FileWriter fileWriter = new FileWriter("color.dat")){
+            BufferedWriter BWriter = new BufferedWriter(fileWriter);
+            BWriter.write(getRed());
+            BWriter.newLine();
+            BWriter.write(getGreen());
+            BWriter.newLine();
+            BWriter.write(getBlue());
+            BWriter.close();
+        }
+        catch (IOException io){
+            System.out.print(io.getMessage());
+        }
+    }
+    public void loadFormFile(){
+        try(FileReader fileReader = new FileReader("color.dat")){
+            BufferedReader BReader = new BufferedReader(fileReader);
+            changeColorViaAbsoluteValue(ColorCode.RED,BReader.readLine());
+            changeColorViaAbsoluteValue(ColorCode.GREEN,BReader.readLine());
+            changeColorViaAbsoluteValue(ColorCode.BLUE,BReader.readLine());
+        }
+        catch (IOException io){
+            System.out.print(io.getMessage());
+        }
     }
     public void changeColorViaRelativeValue(ColorCode cc, int value){
         if (cc == ColorCode.RED){
