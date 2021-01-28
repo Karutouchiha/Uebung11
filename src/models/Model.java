@@ -9,6 +9,7 @@ public class Model{
     ModularCounter green;
     ModularCounter blue;
     final String datName = "color.dat";
+    final String Identifier = "Color File Format 1.0";
 
     public Model(){
         this.red = new ModularCounter(255, 256);
@@ -50,11 +51,13 @@ public class Model{
     public void saveToFile(){
         try(FileWriter fileWriter = new FileWriter(datName)){
             BufferedWriter BWriter = new BufferedWriter(fileWriter);
-            BWriter.write(getRed());
+            BWriter.write(Identifier);
             BWriter.newLine();
-            BWriter.write(getGreen());
+            BWriter.write(String.valueOf(getRed()));
             BWriter.newLine();
-            BWriter.write(getBlue());
+            BWriter.write(String.valueOf(getGreen()));
+            BWriter.newLine();
+            BWriter.write(String.valueOf(getBlue()));
             BWriter.close();
         }
         catch (IOException io){
@@ -64,9 +67,18 @@ public class Model{
     public void loadFormFile(){
         try(FileReader fileReader = new FileReader(datName)){
             BufferedReader BReader = new BufferedReader(fileReader);
-            changeColorViaAbsoluteValue(ColorCode.RED,BReader.readLine());
-            changeColorViaAbsoluteValue(ColorCode.GREEN,BReader.readLine());
-            changeColorViaAbsoluteValue(ColorCode.BLUE,BReader.readLine());
+            String k = BReader.readLine();
+            String r = BReader.readLine();
+            String g = BReader.readLine();
+            String b = BReader.readLine();
+            if (!k.equals(null)&&!r.equals(null)&&!g.equals(null)&& !b.equals(null) && k.equals(Identifier)) {
+                changeColorViaAbsoluteValue(ColorCode.RED, r);
+                changeColorViaAbsoluteValue(ColorCode.GREEN, g);
+                changeColorViaAbsoluteValue(ColorCode.BLUE, b);
+            }
+            else{
+                System.out.println("File corrupted");
+            }
         }
         catch (IOException io){
             System.out.print(io.getMessage());
