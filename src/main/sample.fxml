@@ -104,8 +104,8 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Speichern" GridPane.rowIndex="1" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Laden" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onMouseClicked="#saveColor" prefHeight="38.0" prefWidth="94.0" text="Speichern" GridPane.rowIndex="1" />
+            <Button mnemonicParsing="false" onMouseClicked="#loadColor" prefHeight="38.0" prefWidth="94.0" text="Laden" GridPane.columnIndex="1" GridPane.rowIndex="1" />
          </children>
       </GridPane>
    </children>

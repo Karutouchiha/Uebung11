@@ -8,6 +8,8 @@ public class Model{
     ModularCounter red;
     ModularCounter green;
     ModularCounter blue;
+    final String datName = "color.dat";
+
     public Model(){
         this.red = new ModularCounter(255, 256);
         this.green = new ModularCounter(255, 256);
@@ -46,7 +48,7 @@ public class Model{
         changeColorViaAbsoluteValue(cc,Integer.parseInt(value));
     }
     public void saveToFile(){
-        try(FileWriter fileWriter = new FileWriter("color.dat")){
+        try(FileWriter fileWriter = new FileWriter(datName)){
             BufferedWriter BWriter = new BufferedWriter(fileWriter);
             BWriter.write(getRed());
             BWriter.newLine();
@@ -60,7 +62,7 @@ public class Model{
         }
     }
     public void loadFormFile(){
-        try(FileReader fileReader = new FileReader("color.dat")){
+        try(FileReader fileReader = new FileReader(datName)){
             BufferedReader BReader = new BufferedReader(fileReader);
             changeColorViaAbsoluteValue(ColorCode.RED,BReader.readLine());
             changeColorViaAbsoluteValue(ColorCode.GREEN,BReader.readLine());

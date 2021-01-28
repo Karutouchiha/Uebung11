@@ -20,6 +20,7 @@ public class Controller implements Initializable {
     @FXML private Text txt_hex;
     @FXML private Text txt_col;
     Model mod = new Model();
+
     public void changecolorText(){
         try {
             mod.changeColorViaAbsoluteValue(ColorCode.RED, txt_red.getText());
@@ -31,6 +32,15 @@ public class Controller implements Initializable {
         }
         updateColor();
     }
+
+    public void saveColor(){
+        mod.saveToFile();
+    }
+    public void loadColor(){
+        mod.loadFormFile();
+        updateColor();
+    }
+
     public void changecolorButton(MouseEvent event){
         Object node = event.getSource();
         Button btn = (Button)node;
